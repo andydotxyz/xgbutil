@@ -154,7 +154,7 @@ func NewIcccmIcon(X *xgbutil.XUtil, iconPixmap,
 					B: bgra.B,
 					G: bgra.G,
 					R: bgra.R,
-					A: maskBgra.A,
+					A: uint8((uint16(bgra.A) * uint16(maskBgra.A)) / 0xff),
 				})
 			}
 		}
