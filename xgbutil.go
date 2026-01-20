@@ -274,6 +274,7 @@ func NewConnXgb(c *xgb.Conn) (*XUtil, error) {
 			"because the XINERAMA extension could not be loaded.")
 	}
 
+	// initialise the XCMisc extension for ID re-use - if successful then hook in to xgb.
 	err = xcmisc.Init(c)
 	if err == nil {
 		xu.conn.SetIDRangeFunc(func(c *xgb.Conn) (uint32, uint32, error) {
